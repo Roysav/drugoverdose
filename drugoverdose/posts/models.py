@@ -17,4 +17,6 @@ class Post(models.Model):
     parent = models.ForeignKey('Post', related_name='children', on_delete=models.CASCADE, null=True, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True, default=None)
+    author = models.ForeignKey('auth.User', related_name='posts', on_delete=models.SET_NULL, null=True)
+
 
