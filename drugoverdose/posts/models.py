@@ -14,7 +14,7 @@ class Post(models.Model):
     type = models.CharField(max_length=20, choices=PostType.choices)
     title = models.CharField(max_length=200, null=True, default=None)
     body = models.TextField(null=True, default=None)
-    parent = models.ForeignKey('Post', related_name='children', on_delete=models.CASCADE)
+    parent = models.ForeignKey('Post', related_name='children', on_delete=models.CASCADE, null=True, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True, default=None)
 
